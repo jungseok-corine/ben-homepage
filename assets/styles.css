@@ -514,6 +514,13 @@ h3 {
   aspect-ratio: 9 / 19.5;
 }
 
+.screenshot-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .screenshot-placeholder {
   width: 100%;
   height: 100%;
