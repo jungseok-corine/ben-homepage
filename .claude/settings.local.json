@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(tree:*)",
+      "Bash(awk '\nBEGIN { print \"\"\"\".\"\"\"\" }\n{\n    depth = gsub(/\\//, \"\"\"\"/\"\"\"\", $0)\n    indent = \"\"\"\"\"\"\"\"\n    for (i = 0; i < depth; i++) indent = indent \"\"\"\"│   \"\"\"\"\n    \n    split($0, parts, \"\"\"\"/\"\"\"\")\n    name = parts[length(parts)]\n    \n    if ($0 ~ /\\/$/ || system(\"\"\"\"test -d \\\"\"\"\"\"\"\"\" $0 \"\"\"\"\\\"\"\"\"\"\"\"\") == 0) {\n        print indent \"\"\"\"├── \"\"\"\" name \"\"\"\"/\"\"\"\"\n    } else {\n        print indent \"\"\"\"├── \"\"\"\" name\n    }\n}')",
+      "Bash(python3:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

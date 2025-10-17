@@ -1,0 +1,698 @@
+/* ===================================
+   Studio Ben - Global Styles
+   Privacy-first mobile apps
+   =================================== */
+
+/* ===================================
+   CSS Custom Properties
+   =================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #64748b;
+  --color-accent: #06b6d4;
+
+  /* Light Mode */
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-border: #e2e8f0;
+  --color-shadow: rgba(15, 23, 42, 0.1);
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+
+  /* Typography */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.1;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-text: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-border: #334155;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* ===================================
+   Skip to Content (Accessibility)
+   =================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===================================
+   Typography
+   =================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: var(--line-height-heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* ===================================
+   Layout Container
+   =================================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* ===================================
+   Header
+   =================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-header {
+    background-color: rgba(15, 23, 42, 0.8);
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  min-height: 60px;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.lang-toggle {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-md);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all var(--transition-base);
+}
+
+.lang-toggle:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.lang-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Sections
+   =================================== */
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+}
+
+/* ===================================
+   App Cards Grid
+   =================================== */
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.app-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px var(--color-shadow);
+  border-color: var(--color-primary);
+}
+
+.app-card:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.app-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.app-card h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.app-description {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.app-badges {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: white;
+}
+
+.badge.secondary {
+  background: var(--color-secondary);
+}
+
+.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--color-border);
+}
+
+/* ===================================
+   App Page Specific
+   =================================== */
+
+.app-hero {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+}
+
+.app-hero .app-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-xl);
+  margin: 0 auto var(--space-md);
+}
+
+.app-title {
+  margin-bottom: var(--space-sm);
+}
+
+.app-tagline {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Features Grid
+   =================================== */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.feature-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  font-size: 1.5rem;
+}
+
+.feature-item h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.25rem;
+}
+
+.feature-item p {
+  color: var(--color-text-secondary);
+}
+
+/* ===================================
+   Screenshots Section
+   =================================== */
+
+.screenshots {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: var(--space-md) 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screenshots::-webkit-scrollbar {
+  height: 8px;
+}
+
+.screenshots::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.screenshots::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.screenshot-item {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  aspect-ratio: 9 / 19.5;
+}
+
+.screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+  font-weight: 600;
+}
+
+/* ===================================
+   Privacy & Support Sections
+   =================================== */
+
+.privacy-section, .support-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.privacy-section h2, .support-section h2 {
+  margin-bottom: var(--space-md);
+}
+
+.privacy-section p, .support-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.privacy-section a, .support-section a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.privacy-section a:hover, .support-section a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Privacy Policy & FAQ Pages
+   =================================== */
+
+.content-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.content-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.content-page h2 {
+  font-size: 1.75rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.content-page h3 {
+  font-size: 1.25rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.content-page p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+.content-page ul, .content-page ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+  color: var(--color-text-secondary);
+}
+
+.content-page li {
+  margin-bottom: var(--space-xs);
+}
+
+.content-page strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.last-updated {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  margin-top: var(--space-lg);
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-2xl);
+  text-align: center;
+}
+
+.footer-content {
+  color: var(--color-text-secondary);
+}
+
+.footer-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Focus States (Accessibility)
+   =================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Responsive Utilities
+   =================================== */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+  .site-header, .site-footer, .lang-toggle, .hero-buttons {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

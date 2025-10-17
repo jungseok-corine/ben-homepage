@@ -1,0 +1,27 @@
+# Studio Ben - Jekyll Configuration
+# Privacy-first mobile apps
+
+theme: null
+plugins: []
+
+# Site settings
+title: "Studio Ben"
+description: "Building intuitive, privacy-first mobile apps"
+url: "https://jungseok-corine.github.io"
+baseurl: "/ben-homepage"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .DS_Store
+  - Thumbs.db
+  - node_modules
+  - "*.log"
+  - .vscode
+  - .idea
